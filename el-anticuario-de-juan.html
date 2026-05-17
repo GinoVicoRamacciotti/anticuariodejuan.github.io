@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Anticuario de Juan – Restauración de Muebles Antiguos · Córdoba</title>
+<meta name="description" content="Restauración, esterillado, tapizado, cepillado y lavado de muebles antiguos. Bancos de pinotea industrial. Córdoba y todo el país. Presupuesto online gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:       #F5EFE0;
+    --cream-dark:  #EDE3CC;
+    --ink:         #1C1410;
+    --ink-light:   #3D2B1F;
+    --sienna:      #8B4513;
+    --sienna-light:#A0522D;
+    --rust:        #C1440E;
+    --iron:        #4A4035;
+    --iron-light:  #6B5D52;
+    --gold:        #C9A84C;
+    --gold-light:  #E8C97A;
+    --warm-white:  #FDFAF4;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background: var(--warm-white); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 2.5rem; background: rgba(28,20,16,0.93); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,168,76,0.2); }
+  .nav-logo-wrap { text-decoration: none; display: flex; align-items: center; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; transition: opacity 0.2s, color 0.2s; }
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+  .nav-cta { background: var(--sienna) !important; color: var(--cream) !important; padding: 0.4rem 1rem; border-radius: 2px; opacity: 1 !important; }
+  .nav-cta:hover { background: var(--rust) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); }
+
+  /* ── HERO ── */
+  #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden; background: var(--ink); }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(28,20,16,0.65) 0%, rgba(28,20,16,0.35) 55%, rgba(139,69,19,0.38) 100%), url('fotos/hero.jpg') center/cover no-repeat; }
+  .hero-bg-fallback { position: absolute; inset: 0; background: repeating-linear-gradient(88deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(2deg, rgba(139,69,19,0.06) 0px, rgba(139,69,19,0.06) 1px, transparent 1px, transparent 80px), linear-gradient(160deg, #1C1410 0%, #2D1E14 50%, #1A1208 100%); }
+  .hero-ornament { position: absolute; border-radius: 50%; pointer-events: none; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .hero-ornament-1 { width: 420px; height: 420px; border: 1px solid rgba(201,168,76,0.14); }
+  .hero-ornament-2 { width: 600px; height: 600px; border: 1px solid rgba(201,168,76,0.07); }
+  .hero-content { position: relative; z-index: 2; padding: 2rem 1.5rem; animation: fadeUp 1s ease both; }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
+  .hero-logo-wrap { margin-bottom: 1.4rem; display: flex; justify-content: center; }
+  .hero-slogan { display: inline-block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: rgba(201,168,76,0.75); border-top: 1px solid rgba(201,168,76,0.3); border-bottom: 1px solid rgba(201,168,76,0.3); padding: 0.5rem 1.8rem; margin-bottom: 2.5rem; letter-spacing: 0.05em; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: var(--sienna); color: var(--cream); padding: 0.85rem 2rem; border: none; border-radius: 2px; font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--rust); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--cream); border: 1px solid rgba(245,239,224,0.45); padding: 0.85rem 2rem; border-radius: 2px; font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.15s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; color: rgba(245,239,224,0.35); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; animation: bounce 2.2s infinite; }
+  .hero-scroll::after { content: ''; display: block; width: 1px; height: 38px; background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent); }
+
+  /* ── SECCIONES ── */
+  section { padding: 6rem 1.5rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sienna); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--ink); line-height: 1.12; margin-bottom: 1.2rem; }
+  .section-title em { font-style: italic; color: var(--sienna-light); }
+  .divider { width: 60px; height: 2px; background: linear-gradient(to right, var(--gold), transparent); margin-bottom: 1.5rem; }
+  .section-text { font-size: 1rem; color: var(--iron); line-height: 1.8; max-width: 580px; }
+
+  /* ── SERVICIOS ── */
+  #servicios { background: var(--cream); }
+  .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+  .servicio-card { background: var(--warm-white); border: 1px solid rgba(139,69,19,0.1); border-top: 3px solid var(--sienna); padding: 1.75rem 1.4rem; border-radius: 2px; transition: transform 0.25s, box-shadow 0.25s; }
+  .servicio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,20,16,0.1); }
+  .servicio-icon { font-size: 2rem; margin-bottom: 0.9rem; display: block; }
+  .servicio-nombre { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+  .servicio-desc { font-size: 0.88rem; color: var(--iron); line-height: 1.7; }
+
+  /* ── BANCOS ── */
+  #bancos { background: var(--ink); }
+  #bancos .section-label { color: var(--gold); }
+  #bancos .section-title { color: var(--cream); }
+  #bancos .section-text { color: rgba(245,239,224,0.62); }
+  .bancos-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; margin-top: 3rem; }
+  .bancos-features { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .banco-feat { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 1.2rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.13); border-radius: 2px; }
+  .banco-feat-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+  .banco-feat-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.2rem; }
+  .banco-feat-text p { font-size: 0.86rem; color: rgba(245,239,224,0.55); line-height: 1.6; }
+  .precio-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.22); border-radius: 2px; padding: 0.5rem 1rem; font-size: 0.82rem; color: var(--gold-light); margin-top: 1.5rem; margin-bottom: 1.5rem; }
+  .bancos-gallery { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 8px; }
+  .banco-img { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.1); border-radius: 2px; overflow: hidden; position: relative; }
+  .banco-img:first-child { grid-column: span 2; }
+  .banco-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; transition: opacity 0.3s; }
+  .banco-img:hover img { opacity: 1; }
+  .banco-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(201,168,76,0.3); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .banco-img-placeholder span { font-size: 1.8rem; }
+
+  /* ── GALERÍA ── */
+  #galeria { background: var(--cream-dark); }
+  .galeria-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2.5rem; margin-bottom: 2rem; }
+  .gtab { padding: 0.5rem 1.2rem; border: 1px solid rgba(139,69,19,0.25); border-radius: 2px; background: transparent; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--iron); transition: all 0.2s; }
+  .gtab:hover { border-color: var(--sienna); color: var(--sienna); }
+  .gtab.active { background: var(--sienna); border-color: var(--sienna); color: var(--cream); }
+  .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+  .galeria-item { aspect-ratio: 4/3; overflow: hidden; border-radius: 2px; background: rgba(28,20,16,0.07); cursor: pointer; position: relative; }
+  .galeria-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+  .galeria-item:hover img { transform: scale(1.05); }
+  .galeria-item-overlay { position: absolute; inset: 0; background: rgba(28,20,16,0); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+  .galeria-item:hover .galeria-item-overlay { background: rgba(28,20,16,0.35); }
+  .galeria-item-overlay span { color: white; font-size: 1.5rem; opacity: 0; transition: opacity 0.3s; }
+  .galeria-item:hover .galeria-item-overlay span { opacity: 1; }
+  .galeria-placeholder { aspect-ratio: 4/3; background: rgba(28,20,16,0.05); border: 2px dashed rgba(139,69,19,0.2); border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: rgba(139,69,19,0.35); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .galeria-placeholder span { font-size: 1.6rem; }
+  .galeria-note { margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(139,69,19,0.07); border-left: 3px solid var(--sienna); font-size: 0.83rem; color: var(--iron); border-radius: 0 2px 2px 0; }
+  .galeria-note code { background: rgba(139,69,19,0.1); padding: 1px 6px; border-radius: 2px; font-family: monospace; font-size: 0.8rem; color: var(--sienna); }
+
+  /* ── LIGHTBOX ── */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(10,6,4,0.95); align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border-radius: 2px; }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; color: var(--cream); font-size: 2.5rem; cursor: pointer; background: none; border: none; line-height: 1; opacity: 0.7; transition: opacity 0.2s; }
+  .lightbox-close:hover { opacity: 1; }
+
+  /* ── PRESUPUESTO ── */
+  #presupuesto { background: var(--warm-white); }
+  .presupuesto-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+  .info-item { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 1rem; }
+  .info-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 3px; }
+  .info-item p { margin: 0; font-size: 0.88rem; color: var(--iron); }
+  .info-item strong { color: var(--ink); }
+  .form-card { background: var(--cream); border: 1px solid rgba(139,69,19,0.15); border-radius: 2px; padding: 2.5rem 2rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-label { display: block; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.45rem; }
+  .form-control { width: 100%; padding: 0.72rem 1rem; background: var(--warm-white); border: 1px solid rgba(139,69,19,0.2); border-radius: 2px; font-family: 'Raleway', sans-serif; font-size: 0.92rem; color: var(--ink); transition: border-color 0.2s; outline: none; }
+  .form-control:focus { border-color: var(--sienna); }
+  textarea.form-control { resize: vertical; min-height: 100px; }
+  .file-drop { border: 2px dashed rgba(139,69,19,0.28); border-radius: 2px; padding: 1.8rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; background: rgba(139,69,19,0.03); position: relative; }
+  .file-drop:hover, .file-drop.dragover { border-color: var(--sienna); background: rgba(139,69,19,0.06); }
+  .file-drop input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .file-drop-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  .file-drop-text { font-size: 0.83rem; color: var(--iron); }
+  .file-drop-text strong { color: var(--sienna); }
+  .file-preview { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .file-thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 2px; border: 1px solid rgba(139,69,19,0.2); }
+  .form-channel { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
+  .channel-btn { display: flex; align-items: center; gap: 10px; padding: 0.8rem 1rem; border: 2px solid rgba(139,69,19,0.18); border-radius: 2px; background: var(--warm-white); cursor: pointer; transition: border-color 0.2s, background 0.2s; font-family: 'Raleway', sans-serif; font-size: 0.83rem; font-weight: 600; color: var(--iron); }
+  .channel-btn.selected { border-color: var(--sienna); background: rgba(139,69,19,0.06); color: var(--ink); }
+  .channel-btn .ch-icon { font-size: 1.3rem; }
+  .channel-label { display: flex; flex-direction: column; text-align: left; }
+  .channel-label small { font-weight: 400; font-size: 0.7rem; color: var(--iron-light); }
+  .btn-enviar { width: 100%; padding: 1rem; background: var(--sienna); color: var(--cream); border: none; border-radius: 2px; font-family: 'Raleway', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+  .btn-enviar:hover { background: var(--rust); transform: translateY(-2px); }
+
+  /* ── TESTIMONIOS ── */
+  #testimonios { background: var(--ink); }
+  #testimonios .section-label { color: var(--gold); }
+  #testimonios .section-title { color: var(--cream); }
+  #testimonios .divider { background: linear-gradient(to right, var(--gold), transparent); }
+  .testimonios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .testimonio-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.13); border-radius: 2px; padding: 1.75rem 1.5rem; transition: background 0.25s, border-color 0.25s; }
+  .testimonio-card:hover { background: rgba(255,255,255,0.065); border-color: rgba(201,168,76,0.25); }
+  .testimonio-stars { color: var(--gold); font-size: 0.75rem; margin-bottom: 0.75rem; }
+  .testimonio-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,239,224,0.82); line-height: 1.75; margin-bottom: 1.25rem; }
+  .testimonio-quote::before { content: '\201C'; font-size: 2.5rem; color: var(--gold); line-height: 0; vertical-align: -0.5rem; margin-right: 4px; }
+  .testimonio-author { display: flex; align-items: center; gap: 10px; }
+  .testimonio-avatar { width: 38px; height: 38px; border-radius: 50%; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--gold-light); flex-shrink: 0; }
+  .testimonio-name { font-size: 0.88rem; font-weight: 600; color: var(--cream); }
+  .testimonio-city { font-size: 0.75rem; color: rgba(245,239,224,0.4); }
+
+  /* ── VENTAS ── */
+  #ventas { background: var(--cream); }
+  .ventas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .venta-card { background: var(--warm-white); border: 1px solid rgba(139,69,19,0.12); border-radius: 2px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
+  .venta-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,20,16,0.1); }
+  .venta-img { aspect-ratio: 4/3; background: var(--cream-dark); overflow: hidden; position: relative; }
+  .venta-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .venta-card:hover .venta-img img { transform: scale(1.04); }
+  .venta-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(139,69,19,0.3); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .venta-img-placeholder span { font-size: 2.2rem; }
+  .venta-body { padding: 1.25rem 1.25rem 1.5rem; }
+  .venta-nombre { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.4rem; }
+  .venta-desc { font-size: 0.85rem; color: var(--iron); margin-bottom: 1rem; line-height: 1.6; }
+  .venta-precio { font-size: 1.2rem; font-weight: 700; color: var(--sienna); margin-bottom: 0.8rem; }
+  .venta-consultar { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sienna); text-decoration: none; border-bottom: 1px solid currentColor; transition: color 0.2s; }
+  .venta-consultar:hover { color: var(--rust); }
+
+  /* ── CONTACTO ── */
+  #contacto { background: var(--cream-dark); text-align: center; }
+  .contacto-cards { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 2.5rem 0 2rem; }
+  .contacto-card { background: var(--warm-white); border: 1px solid rgba(139,69,19,0.15); border-radius: 2px; padding: 1.8rem 2.5rem; text-decoration: none; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; min-width: 200px; }
+  .contacto-card:hover { border-color: var(--sienna); transform: translateY(-4px); box-shadow: 0 10px 28px rgba(28,20,16,0.1); }
+  .contacto-card-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
+  .contacto-card-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sienna); margin-bottom: 0.4rem; }
+  .contacto-card-value { font-size: 0.92rem; color: var(--ink); font-weight: 500; }
+  .contacto-zona { display: inline-flex; align-items: center; gap: 8px; background: rgba(139,69,19,0.08); border: 1px solid rgba(139,69,19,0.18); border-radius: 2px; padding: 0.7rem 1.5rem; font-size: 0.83rem; color: var(--iron); }
+
+  /* ── FOOTER ── */
+  footer { background: #0E0A08; padding: 2.2rem 1.5rem; text-align: center; border-top: 1px solid rgba(201,168,76,0.1); }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: rgba(201,168,76,0.5); margin-top: 0.6rem; }
+  footer p { font-size: 0.76rem; color: rgba(245,239,224,0.25); letter-spacing: 0.05em; margin-top: 0.8rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(7px); } }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0.9rem 1.25rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(14,10,8,0.98); align-items: center; justify-content: center; gap: 2rem; z-index: 200; }
+    .nav-links.open a { font-size: 1rem; }
+    section { padding: 4rem 1.25rem; }
+    .bancos-layout { grid-template-columns: 1fr; }
+    .presupuesto-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .form-channel { grid-template-columns: 1fr; }
+    .hero-ornament-1 { width: 280px; height: 280px; }
+    .hero-ornament-2 { width: 400px; height: 400px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo-wrap" aria-label="Inicio">
+    <svg width="185" height="46" viewBox="0 0 185 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="4" y1="23" x2="16" y2="23" stroke="#C9A84C" stroke-width="0.8" opacity="0.65"/>
+      <circle cx="18.5" cy="23" r="2.2" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.65"/>
+      <text x="24" y="17" font-family="'Cormorant Garamond', serif" font-size="13" font-weight="600" fill="#E8C97A" letter-spacing="1.5">EL ANTICUARIO</text>
+      <line x1="24" y1="21" x2="161" y2="21" stroke="#C9A84C" stroke-width="0.5" opacity="0.35"/>
+      <text x="92" y="30" font-family="'Cormorant Garamond', serif" font-size="9" font-style="italic" fill="#C9A84C" letter-spacing="3" text-anchor="middle" opacity="0.75">de</text>
+      <text x="92" y="43" font-family="'Cormorant Garamond', serif" font-size="20" font-weight="700" fill="#F5EFE0" letter-spacing="8" text-anchor="middle">JUAN</text>
+      <circle cx="166.5" cy="23" r="2.2" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.65"/>
+      <line x1="169" y1="23" x2="181" y2="23" stroke="#C9A84C" stroke-width="0.8" opacity="0.65"/>
+    </svg>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#bancos">Bancos</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#ventas">Ventas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#presupuesto" class="nav-cta">Presupuesto</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-fallback"></div>
+  <div class="hero-ornament hero-ornament-2"></div>
+  <div class="hero-ornament hero-ornament-1"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ &nbsp; Restauración de muebles antiguos &nbsp; · &nbsp; Córdoba &nbsp; ✦</p>
+    <div class="hero-logo-wrap">
+      <svg width="340" height="92" viewBox="0 0 340 92" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="El Anticuario de Juan">
+        <line x1="8" y1="45" x2="36" y2="45" stroke="#C9A84C" stroke-width="0.8" opacity="0.55"/>
+        <circle cx="39" cy="45" r="3" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.55"/>
+        <circle cx="301" cy="45" r="3" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.55"/>
+        <line x1="304" y1="45" x2="332" y2="45" stroke="#C9A84C" stroke-width="0.8" opacity="0.55"/>
+        <text x="170" y="30" font-family="'Cormorant Garamond', serif" font-size="23" font-weight="600" fill="#E8C97A" letter-spacing="6" text-anchor="middle">EL ANTICUARIO</text>
+        <line x1="52" y1="38" x2="288" y2="38" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+        <text x="170" y="56" font-family="'Cormorant Garamond', serif" font-size="14" font-style="italic" fill="#C9A84C" letter-spacing="5" text-anchor="middle" opacity="0.72">de</text>
+        <text x="170" y="86" font-family="'Cormorant Garamond', serif" font-size="42" font-weight="700" fill="#F5EFE0" letter-spacing="16" text-anchor="middle">JUAN</text>
+      </svg>
+    </div>
+    <p class="hero-slogan">El tiempo da carácter. Nosotros lo devolvemos a la vida.</p>
+    <div class="hero-btns">
+      <a href="#presupuesto" class="btn-primary">Pedí tu presupuesto</a>
+      <a href="#galeria" class="btn-outline">Ver trabajos</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Desplazá</div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">¿Qué hacemos?</p>
+      <h2 class="section-title">Servicios con <em>oficio y pasión</em></h2>
+      <div class="divider"></div>
+      <p class="section-text">Cada trabajo es único. Tratamos tu mueble con el cuidado que merece, combinando técnicas artesanales y materiales de calidad.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card reveal"><span class="servicio-icon">🪑</span><h3 class="servicio-nombre">Restauración</h3><p class="servicio-desc">Devolvemos la vida a piezas antiguas: sillas, sillones, mesas, aparadores. Recuperamos terminaciones, estructuras y detalles originales.</p></div>
+      <div class="servicio-card reveal"><span class="servicio-icon">🪢</span><h3 class="servicio-nombre">Esterillado</h3><p class="servicio-desc">Tejido artesanal de esterilla en distintos patrones. Renovamos respaldos y asientos con la técnica que requiere cada pieza.</p></div>
+      <div class="servicio-card reveal"><span class="servicio-icon">🧵</span><h3 class="servicio-nombre">Tapizado</h3><p class="servicio-desc">Retapizado de asientos y respaldos en telas, cuero o eco-cuero. Rellenos, terminaciones prolijas y materiales de calidad.</p></div>
+      <div class="servicio-card reveal"><span class="servicio-icon">🪚</span><h3 class="servicio-nombre">Cepillado</h3><p class="servicio-desc">Lijado y cepillado de madera para recuperar la superficie original. Preparación ideal antes de barnizado, teñido o pintura.</p></div>
+      <div class="servicio-card reveal"><span class="servicio-icon">🧼</span><h3 class="servicio-nombre">Lavado y limpieza</h3><p class="servicio-desc">Tratamiento profundo de tapizados y superficies. Eliminamos suciedad acumulada sin dañar los materiales originales.</p></div>
+      <div class="servicio-card reveal"><span class="servicio-icon">💬</span><h3 class="servicio-nombre">Presupuesto online gratis</h3><p class="servicio-desc">Mandás fotos desde cualquier parte del país y te cotizamos sin cargo. Capital cordobesa o interior, siempre gratis.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BANCOS -->
+<section id="bancos">
+  <div class="container">
+    <div class="bancos-layout">
+      <div class="reveal">
+        <p class="section-label">Producción propia</p>
+        <h2 class="section-title" style="color:var(--cream);">Bancos de <em style="color:var(--gold-light);">pinotea</em></h2>
+        <div class="divider"></div>
+        <p class="section-text">Construimos bancos industriales tipo barra con madera de pinotea recuperada. Piezas robustas, con carácter y estética rústica para gastronomía, hogar o espacios comerciales.</p>
+        <div class="bancos-features">
+          <div class="banco-feat"><span class="banco-feat-icon">🌲</span><div class="banco-feat-text"><h4>Madera de pinotea recuperada</h4><p>Cada tabla tiene historia propia. Vetas únicas, marcas del tiempo y una solidez difícil de igualar.</p></div></div>
+          <div class="banco-feat"><span class="banco-feat-icon">⚙️</span><div class="banco-feat-text"><h4>Estilo industrial tipo barra</h4><p>Diseño robusto con terminación en aceite o barniz. Medidas y acabados a pedido.</p></div></div>
+          <div class="banco-feat"><span class="banco-feat-icon">📐</span><div class="banco-feat-text"><h4>Medidas personalizadas</h4><p>Adaptamos el banco a tu espacio. Consultá por alturas, largos y terminaciones disponibles.</p></div></div>
+        </div>
+        <div class="precio-tag">💰 &nbsp; Bancos con y sin precio fijo — consultá por la pieza que te interesa</div>
+        <a href="#presupuesto" class="btn-primary">Consultar precios</a>
+      </div>
+      <div class="bancos-gallery reveal">
+        <div class="banco-img">
+          <img src="fotos/bancos/banco-principal.jpg" alt="Banco de pinotea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="banco-img-placeholder" style="display:none;height:200px;"><span>🌲</span><p>fotos/bancos/banco-principal.jpg</p></div>
+        </div>
+        <div class="banco-img">
+          <img src="fotos/bancos/banco-detalle1.jpg" alt="Detalle" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="banco-img-placeholder" style="display:none;height:200px;"><span>📷</span><p>fotos/bancos/banco-detalle1.jpg</p></div>
+        </div>
+        <div class="banco-img">
+          <img src="fotos/bancos/banco-detalle2.jpg" alt="Detalle" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="banco-img-placeholder" style="display:none;height:200px;"><span>📷</span><p>fotos/bancos/banco-detalle2.jpg</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Trabajos realizados</p>
+      <h2 class="section-title">Galería de <em>trabajos</em></h2>
+      <div class="divider"></div>
+      <p class="section-text">Cada pieza tiene una historia. Filtrá por categoría para ver los distintos trabajos.</p>
+    </div>
+    <div class="galeria-tabs">
+      <button class="gtab active" onclick="filtrarGaleria(event,'todos')">Todos</button>
+      <button class="gtab" onclick="filtrarGaleria(event,'restauracion')">Restauración</button>
+      <button class="gtab" onclick="filtrarGaleria(event,'esterillado')">Esterillado</button>
+      <button class="gtab" onclick="filtrarGaleria(event,'tapizado')">Tapizado</button>
+      <button class="gtab" onclick="filtrarGaleria(event,'cepillado')">Cepillado</button>
+      <button class="gtab" onclick="filtrarGaleria(event,'bancos')">Bancos pinotea</button>
+    </div>
+    <div class="galeria-grid" id="galeriaGrid"></div>
+    <div class="galeria-note reveal" style="margin-top:1.5rem;">
+      📁 <strong>Para agregar fotos</strong> guardá las imágenes en las subcarpetas correspondientes:<br>
+      <code>fotos/galeria/restauracion/foto-01.jpg</code> &nbsp;·&nbsp; <code>fotos/galeria/esterillado/foto-01.jpg</code> &nbsp;·&nbsp; <code>fotos/galeria/tapizado/foto-01.jpg</code> &nbsp;·&nbsp; <code>fotos/galeria/cepillado/foto-01.jpg</code> &nbsp;·&nbsp; <code>fotos/galeria/bancos/foto-01.jpg</code>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <img id="lightboxImg" src="" alt="Imagen ampliada">
+</div>
+
+<!-- PRESUPUESTO -->
+<section id="presupuesto">
+  <div class="container">
+    <div class="presupuesto-layout">
+      <div class="reveal">
+        <p class="section-label">Sin cargo</p>
+        <h2 class="section-title">Pedí tu <em>presupuesto</em></h2>
+        <div class="divider"></div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ink);margin-bottom:1rem;">¿Cómo funciona?</p>
+        <p style="font-size:0.9rem;color:var(--iron);line-height:1.8;margin-bottom:1.5rem;">Completá el formulario con la descripción de tu mueble y adjuntá fotos. Te contactamos con el presupuesto sin compromiso.</p>
+        <div class="info-item"><span class="info-icon">📍</span><p><strong>Córdoba capital:</strong> retiro y entrega a domicilio coordinado.</p></div>
+        <div class="info-item"><span class="info-icon">🗺️</span><p><strong>Interior del país:</strong> presupuesto online gratuito. El flete se coordina por separado.</p></div>
+        <div class="info-item"><span class="info-icon">⏱️</span><p><strong>Respuesta rápida:</strong> te contestamos en el día o a la brevedad.</p></div>
+        <div class="info-item"><span class="info-icon">📸</span><p><strong>Cuantas más fotos, mejor:</strong> frente, costados y detalles dañados para un presupuesto más preciso.</p></div>
+      </div>
+      <div class="form-card reveal">
+        <div class="form-group"><label class="form-label" for="nombre">Tu nombre</label><input class="form-control" id="nombre" type="text" placeholder="Nombre y apellido"></div>
+        <div class="form-group"><label class="form-label" for="telefono">Teléfono / WhatsApp</label><input class="form-control" id="telefono" type="tel" placeholder="+54 ..."></div>
+        <div class="form-group">
+          <label class="form-label" for="servicio">Servicio que necesitás</label>
+          <select class="form-control" id="servicio">
+            <option value="">— Seleccioná un servicio —</option>
+            <option>Restauración de mueble</option>
+            <option>Esterillado</option>
+            <option>Tapizado</option>
+            <option>Cepillado / lijado</option>
+            <option>Lavado y limpieza</option>
+            <option>Banco de pinotea</option>
+            <option>Varios servicios</option>
+            <option>Compra de mueble en venta</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label" for="descripcion">Descripción del mueble</label><textarea class="form-control" id="descripcion" placeholder="Contanos qué tenés: tipo de mueble, estado, medidas aproximadas..."></textarea></div>
+        <div class="form-group">
+          <label class="form-label">Adjuntá fotos (recomendado)</label>
+          <div class="file-drop" id="fileDrop">
+            <input type="file" id="fileInput" accept="image/*" multiple>
+            <div class="file-drop-icon">📷</div>
+            <p class="file-drop-text"><strong>Hacé clic o arrastrá</strong> tus fotos acá<br><small style="color:#888;">JPG, PNG · hasta 5 imágenes</small></p>
+          </div>
+          <div class="file-preview" id="filePreview"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">¿Cómo querés recibir respuesta?</label>
+          <div class="form-channel">
+            <button type="button" class="channel-btn selected" id="btnWhatsapp" onclick="selectChannel('whatsapp')"><span class="ch-icon">💬</span><span class="channel-label">WhatsApp<small>Respuesta más rápida</small></span></button>
+            <button type="button" class="channel-btn" id="btnMail" onclick="selectChannel('mail')"><span class="ch-icon">📧</span><span class="channel-label">Correo electrónico<small>juanmarcelovico@hotmail</small></span></button>
+          </div>
+        </div>
+        <button class="btn-enviar" onclick="enviarPresupuesto()">Enviar presupuesto →</button>
+        <p id="formMsg" style="display:none;margin-top:1rem;font-size:0.84rem;text-align:center;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Lo que dicen nuestros clientes</p>
+      <h2 class="section-title">Testimonios</h2>
+      <div class="divider" style="margin:0 auto 0.5rem;"></div>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card reveal">
+        <p class="testimonio-stars">★★★★★</p>
+        <p class="testimonio-quote">Llevé una silla de mi abuela que estaba hecha polvo. Me la devolvieron mejor que nueva. El esterillado quedó impecable y la madera brillaba como el primer día.</p>
+        <div class="testimonio-author"><div class="testimonio-avatar">MG</div><div><p class="testimonio-name">María González</p><p class="testimonio-city">Córdoba Capital</p></div></div>
+      </div>
+      <div class="testimonio-card reveal">
+        <p class="testimonio-stars">★★★★★</p>
+        <p class="testimonio-quote">Le compré un banco de pinotea para mi bar. Robusto, con carácter, exactamente lo que buscaba. Además el trato fue excelente, muy prolijo y cumplido con los tiempos.</p>
+        <div class="testimonio-author"><div class="testimonio-avatar">RL</div><div><p class="testimonio-name">Rodrigo Leiva</p><p class="testimonio-city">Villa Carlos Paz</p></div></div>
+      </div>
+      <div class="testimonio-card reveal">
+        <p class="testimonio-stars">★★★★★</p>
+        <p class="testimonio-quote">Mandé fotos desde Mendoza y el presupuesto llegó al toque. El trabajo superó las expectativas, llegó bien embalado. Lo recomiendo sin dudarlo.</p>
+        <div class="testimonio-author"><div class="testimonio-avatar">CP</div><div><p class="testimonio-name">Claudia Pereyra</p><p class="testimonio-city">Mendoza</p></div></div>
+      </div>
+      <div class="testimonio-card reveal">
+        <p class="testimonio-stars">★★★★★</p>
+        <p class="testimonio-quote">Traje un sillón para retapizar. Eligió la tela perfecta y quedó de lujo. Lo que más valoro es la honestidad: me dijo exactamente qué se podía hacer y en cuánto tiempo.</p>
+        <div class="testimonio-author"><div class="testimonio-avatar">FB</div><div><p class="testimonio-name">Fernando Bustos</p><p class="testimonio-city">Río Cuarto</p></div></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.78rem;color:rgba(245,239,224,0.28);font-style:italic;">* Reemplazá estos testimonios por los reales de tus clientes editando el archivo HTML.</p>
+  </div>
+</section>
+
+<!-- VENTAS -->
+<section id="ventas">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">A la venta</p>
+      <h2 class="section-title">Piezas <em>disponibles</em></h2>
+      <div class="divider"></div>
+      <p class="section-text">Muebles restaurados y bancos de pinotea listos para llevar. Consultá disponibilidad y precio por WhatsApp o mail.</p>
+    </div>
+    <div class="ventas-grid">
+      <div class="venta-card reveal">
+        <div class="venta-img"><img src="fotos/ventas/banco-venta-01.jpg" alt="Banco de pinotea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="venta-img-placeholder" style="display:none;"><span>🌲</span><p>fotos/ventas/banco-venta-01.jpg</p></div></div>
+        <div class="venta-body"><h3 class="venta-nombre">Banco de pinotea industrial</h3><p class="venta-desc">Madera de pinotea recuperada. Estilo barra, terminación en aceite de lino. 120 cm × 45 cm alto.</p><p class="venta-precio">Consultar precio</p><a href="https://wa.me/5493515332281?text=Hola!%20Me%20interesa%20el%20banco%20de%20pinotea.%20%C2%BFSigue%20disponible?" class="venta-consultar" target="_blank">Consultar por WhatsApp →</a></div>
+      </div>
+      <div class="venta-card reveal">
+        <div class="venta-img"><img src="fotos/ventas/silla-venta-01.jpg" alt="Silla restaurada" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="venta-img-placeholder" style="display:none;"><span>🪑</span><p>fotos/ventas/silla-venta-01.jpg</p></div></div>
+        <div class="venta-body"><h3 class="venta-nombre">Silla antigua restaurada</h3><p class="venta-desc">Silla de madera dura con esterillado artesanal nuevo. Estructura consolidada, terminación natural.</p><p class="venta-precio">Consultar precio</p><a href="https://wa.me/5493515332281?text=Hola!%20Me%20interesa%20la%20silla%20antigua.%20%C2%BFSigue%20disponible?" class="venta-consultar" target="_blank">Consultar por WhatsApp →</a></div>
+      </div>
+      <div class="venta-card reveal">
+        <div class="venta-img"><img src="fotos/ventas/mueble-venta-03.jpg" alt="Mueble" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="venta-img-placeholder" style="display:none;"><span>🛋️</span><p>fotos/ventas/mueble-venta-03.jpg</p></div></div>
+        <div class="venta-body"><h3 class="venta-nombre">Próximamente disponible</h3><p class="venta-desc">Agregá tus fotos a <code style="font-size:0.78rem;background:rgba(139,69,19,0.1);padding:1px 5px;border-radius:2px;">fotos/ventas/</code> y completá el nombre, descripción y precio de cada mueble en el HTML.</p><p class="venta-precio">—</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Hablemos</p>
+      <h2 class="section-title">Contacto</h2>
+      <div class="divider" style="margin:0 auto 1rem;"></div>
+      <p style="font-size:0.95rem;color:var(--iron);max-width:480px;margin:0 auto;line-height:1.8;">Escribinos por WhatsApp o mail. Presupuesto gratis a todo el país.</p>
+    </div>
+    <div class="contacto-cards reveal">
+      <a href="https://wa.me/5493515332281?text=Hola!%20Quiero%20consultar%20por%20un%20mueble." class="contacto-card" target="_blank">
+        <span class="contacto-card-icon">💬</span><p class="contacto-card-label">WhatsApp</p><p class="contacto-card-value">+54 351 533-2281</p>
+      </a>
+      <a href="mailto:juanmarcelovico@hotmail.com" class="contacto-card">
+        <span class="contacto-card-icon">📧</span><p class="contacto-card-label">Correo electrónico</p><p class="contacto-card-value">juanmarcelovico@hotmail.com</p>
+      </a>
+      <div class="contacto-card">
+        <span class="contacto-card-icon">📍</span><p class="contacto-card-label">Ubicación</p><p class="contacto-card-value">Córdoba, Argentina</p>
+      </div>
+    </div>
+    <div style="text-align:center;" class="reveal">
+      <span class="contacto-zona">🗺️ &nbsp; Córdoba capital · Interior de Córdoba · Todo el país (online)</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg width="200" height="52" viewBox="0 0 200 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="5" y1="26" x2="20" y2="26" stroke="#C9A84C" stroke-width="0.7" opacity="0.45"/>
+    <circle cx="22.5" cy="26" r="2" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.45"/>
+    <text x="100" y="18" font-family="'Cormorant Garamond', serif" font-size="12" font-weight="600" fill="#C9A84C" letter-spacing="2" text-anchor="middle" opacity="0.6">EL ANTICUARIO</text>
+    <line x1="28" y1="22" x2="172" y2="22" stroke="#C9A84C" stroke-width="0.4" opacity="0.28"/>
+    <text x="100" y="40" font-family="'Cormorant Garamond', serif" font-size="20" font-weight="700" fill="#E8C97A" letter-spacing="8" text-anchor="middle" opacity="0.65">JUAN</text>
+    <circle cx="177.5" cy="26" r="2" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.45"/>
+    <line x1="180" y1="26" x2="195" y2="26" stroke="#C9A84C" stroke-width="0.7" opacity="0.45"/>
+  </svg>
+  <p class="footer-tagline">El tiempo da carácter. Nosotros lo devolvemos a la vida.</p>
+  <p>© 2025 · Córdoba, Argentina · juanmarcelovico@hotmail.com · +54 351 533-2281</p>
+</footer>
+
+<script>
+  /* NAV */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  /* SCROLL REVEAL */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+
+  /* GALERÍA CON TABS */
+  const galeriaData = {
+    restauracion: ['fotos/galeria/restauracion/foto-01.jpg','fotos/galeria/restauracion/foto-02.jpg','fotos/galeria/restauracion/foto-03.jpg','fotos/galeria/restauracion/foto-04.jpg'],
+    esterillado:  ['fotos/galeria/esterillado/foto-01.jpg','fotos/galeria/esterillado/foto-02.jpg','fotos/galeria/esterillado/foto-03.jpg'],
+    tapizado:     ['fotos/galeria/tapizado/foto-01.jpg','fotos/galeria/tapizado/foto-02.jpg','fotos/galeria/tapizado/foto-03.jpg'],
+    cepillado:    ['fotos/galeria/cepillado/foto-01.jpg','fotos/galeria/cepillado/foto-02.jpg'],
+    bancos:       ['fotos/galeria/bancos/foto-01.jpg','fotos/galeria/bancos/foto-02.jpg','fotos/galeria/bancos/foto-03.jpg'],
+  };
+
+  function filtrarGaleria(e, cat) {
+    document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    const fotos = cat === 'todos' ? Object.values(galeriaData).flat() : (galeriaData[cat] || []);
+    renderGaleria(fotos);
+  }
+
+  function renderGaleria(fotos) {
+    const grid = document.getElementById('galeriaGrid');
+    grid.innerHTML = '';
+    fotos.forEach(src => {
+      const wrap = document.createElement('div');
+      wrap.className = 'galeria-item';
+      const img = document.createElement('img');
+      img.src = src; img.alt = 'Trabajo'; img.loading = 'lazy';
+      const overlay = document.createElement('div');
+      overlay.className = 'galeria-item-overlay';
+      overlay.innerHTML = '<span>🔍</span>';
+      img.onerror = () => {
+        wrap.className = 'galeria-placeholder';
+        wrap.innerHTML = '<span>🖼️</span><p>' + src.split('/').slice(-2).join('/') + '</p>';
+      };
+      wrap.addEventListener('click', () => { if (img.naturalWidth) openLightbox(src); });
+      wrap.appendChild(img); wrap.appendChild(overlay);
+      grid.appendChild(wrap);
+    });
+  }
+  renderGaleria(Object.values(galeriaData).flat());
+
+  /* LIGHTBOX */
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  document.getElementById('lightboxClose').addEventListener('click', () => { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; });
+  document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this) { this.classList.remove('open'); document.body.style.overflow = ''; } });
+
+  /* FILE DROP */
+  const fileDrop = document.getElementById('fileDrop');
+  const fileInput = document.getElementById('fileInput');
+  const filePreview = document.getElementById('filePreview');
+  let selectedFiles = [];
+  fileDrop.addEventListener('dragover', e => { e.preventDefault(); fileDrop.classList.add('dragover'); });
+  fileDrop.addEventListener('dragleave', () => fileDrop.classList.remove('dragover'));
+  fileDrop.addEventListener('drop', e => { e.preventDefault(); fileDrop.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+  fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+  function handleFiles(files) {
+    selectedFiles = Array.from(files).slice(0, 5);
+    filePreview.innerHTML = '';
+    selectedFiles.forEach(f => { const r = new FileReader(); r.onload = e => { const i = document.createElement('img'); i.src = e.target.result; i.className = 'file-thumb'; filePreview.appendChild(i); }; r.readAsDataURL(f); });
+  }
+
+  /* CANAL */
+  let canal = 'whatsapp';
+  function selectChannel(ch) {
+    canal = ch;
+    document.getElementById('btnWhatsapp').classList.toggle('selected', ch === 'whatsapp');
+    document.getElementById('btnMail').classList.toggle('selected', ch === 'mail');
+  }
+
+  /* ENVIAR PRESUPUESTO */
+  function enviarPresupuesto() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const servicio = document.getElementById('servicio').value;
+    const descripcion = document.getElementById('descripcion').value.trim();
+    if (!nombre || !descripcion) { showMsg('Por favor completá tu nombre y la descripción del mueble.', 'err'); return; }
+    const fotos = selectedFiles.length ? `📷 ${selectedFiles.length} foto(s) adjunta(s).\n\n` : '';
+    const txt = `Hola Juan! Te escribo desde la web para pedir un presupuesto.\n\n👤 Nombre: ${nombre}\n📞 Teléfono: ${telefono || 'No indicado'}\n🔧 Servicio: ${servicio || 'No especificado'}\n\n🪑 Descripción:\n${descripcion}\n\n${fotos}¡Gracias!`;
+    if (canal === 'whatsapp') {
+      window.open('https://wa.me/5493515332281?text=' + encodeURIComponent(txt), '_blank');
+    } else {
+      window.location.href = 'mailto:juanmarcelovico@hotmail.com?subject=' + encodeURIComponent('Presupuesto – El Anticuario de Juan') + '&body=' + encodeURIComponent(txt);
+    }
+    showMsg('✓ Mensaje preparado. Si no se abrió automáticamente, escribinos directo al WhatsApp o mail.', 'ok');
+  }
+  function showMsg(t, type) {
+    const el = document.getElementById('formMsg');
+    el.textContent = t; el.style.color = type === 'err' ? '#C1440E' : '#0F6E56'; el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 8000);
+  }
+</script>
+</body>
+</html>
